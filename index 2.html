@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fun Personality Quiz 😄</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            margin: 40px auto;
+            width: 350px;
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        input, select, button {
+            width: 90%;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 8px;
+            border: none;
+        }
+
+        button {
+            background: #ff4f9a;
+            color: white;
+            font-weight: bold;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div class="container" id="page1">
+    <h2>✨ Fun Quiz ✨</h2>
+    <p>Let’s know your vibe 😄</p>
+
+    <input type="text" id="name" placeholder="Your Name">
+    <input type="number" id="age" placeholder="Your Age">
+
+    <button onclick="startQuiz()">Start Quiz 🚀</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="container hidden" id="page2">
+    <h3>Answer honestly 😌</h3>
+
+    <p>1. Ideal weekend?</p>
+    <select><option>Netflix 🍿</option><option>Travel ✈️</option><option>Friends 😎</option></select>
+
+    <p>2. Red flag or Green flag?</p>
+    <select><option>Green 😇</option><option>Red 😈</option></select>
+
+    <p>3. Ideal partner?</p>
+    <select><option>Funny 😂</option><option>Serious 😎</option><option>Chill 😌</option></select>
+
+    <p>4. Favorite vibe?</p>
+    <select><option>Peaceful 🌿</option><option>Party 🎉</option></select>
+
+    <p>5. Travel style?</p>
+    <select><option>Mountains 🏔️</option><option>Beach 🌊</option></select>
+
+    <p>6. Texting style?</p>
+    <select><option>Fast ⚡</option><option>Late 😴</option></select>
+
+    <p>7. Food choice?</p>
+    <select><option>Spicy 🌶️</option><option>Sweet 🍰</option></select>
+
+    <p>8. Night or Day?</p>
+    <select><option>Night 🌙</option><option>Day ☀️</option></select>
+
+    <p>9. Love type?</p>
+    <select><option>Deep ❤️</option><option>Fun 😄</option></select>
+
+    <p>10. Music?</p>
+    <select><option>Sad 🎧</option><option>Party 🎶</option></select>
+
+    <p>11. Jealous?</p>
+    <select><option>Yes 😤</option><option>No 😌</option></select>
+
+    <p>12. Plan type?</p>
+    <select><option>Spontaneous 😎</option><option>Planned 📅</option></select>
+
+    <p>13. Chat mood?</p>
+    <select><option>Funny 😂</option><option>Deep 🧠</option></select>
+
+    <p>14. Priority?</p>
+    <select><option>Career 💼</option><option>Love ❤️</option></select>
+
+    <p>15. Personality?</p>
+    <select><option>Introvert 😶</option><option>Extrovert 😄</option></select>
+
+    <button onclick="showResult()">Submit ✅</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="container hidden" id="page3">
+    <h2 id="result"></h2>
+</div>
+
+<script>
+function startQuiz() {
+    let name = document.getElementById("name").value;
+    let age = document.getElementById("age").value;
+
+    if(name === "" || age === "") {
+        alert("Enter name & age 😅");
+        return;
+    }
+
+    document.getElementById("page1").style.display = "none";
+    document.getElementById("page2").style.display = "block";
+}
+
+function showResult() {
+    let name = document.getElementById("name").value;
+
+    let score = Math.floor(Math.random() * 100);
+
+    let message = "";
+
+    if(score > 70) {
+        message = "You are fun & positive 😄✨";
+    } else if(score > 40) {
+        message = "Balanced personality 🙂⚖️";
+    } else {
+        message = "Mysterious vibe 😏🌙";
+    }
+
+    document.getElementById("page2").style.display = "none";
+    document.getElementById("page3").style.display = "block";
+
+    document.getElementById("result").innerHTML =
+        name + ", your vibe score is " + score + "%<br>" + message;
+}
+</script>
+
+</body>
+</html>
